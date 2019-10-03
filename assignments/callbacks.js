@@ -78,6 +78,8 @@ function contains(item, list, cb) {
   // Attempt to populate testList array.  If no match, the array will remain empty and return 
   // false with the callback.
   const testList = list.filter((filterItem) => filterItem === item);
+  // This page helped for the below check:
+  // https://stackoverflow.com/questions/11743392/check-if-an-array-is-empty-or-exists
   if (Array.isArray(testList) && testList.length) {
     return cb(true);
   } else {
