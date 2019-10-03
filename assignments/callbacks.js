@@ -41,24 +41,56 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+let getLengthTest = getLength(items, length => `There are ${length} items in the array.`);
+console.log(getLengthTest);
+
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length - 1]);
 }
+let lastTest = last(items, lastItem => `The last item in the array is ${lastItem}.`);
+console.log(lastTest);
+
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x + y);
 }
+let sumNumsTest = sumNums(2,5, sum => `The sum of 2 and 5 is ${sum}.`);
+console.log(sumNumsTest);
+
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x * y);
 }
+let multiplyNumsTest = multiplyNums(3,4, product => `The product of 3 and 4 is ${product}.`);
+console.log(multiplyNumsTest);
+
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  
+  // Attempt to populate testList array.  If no match, the array will remain empty and return 
+  // false with the callback.
+  const testList = list.filter((filterItem) => filterItem === item);
+  if (Array.isArray(testList) && testList.length) {
+    return cb(true);
+  } else {
+    return cb(false);
+  }
 }
+// Provide feedback as to whether or not the item is in the array.
+function feedback(item) {
+  return contains(item, items, trueOrFalse => `${item} is inside the array? ${trueOrFalse}`);
+}
+console.log(feedback("Pencil"));
+console.log(feedback("Bird"));
+
 
 /* STRETCH PROBLEM */
 
