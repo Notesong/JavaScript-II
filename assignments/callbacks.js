@@ -72,23 +72,16 @@ console.log(multiplyNumsTest);
 
 
 function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
+  // contains checks if an item is present inside of the given array/list. Pass true to the callback if it is, otherwise pass false.
   
-  // Attempt to populate testList array.  If no match, the array will remain empty and return 
-  // false with the callback.
+  // Attempt to populate testList array.  If no match, the array will remain empty and return false with the callback.
   const testList = list.filter((filterItem) => filterItem === item);
-  // This page helped for the below check:
-  // https://stackoverflow.com/questions/11743392/check-if-an-array-is-empty-or-exists
-  if (Array.isArray(testList) && testList.length) {
-    return cb(true);
-  } else {
-    return cb(false);
-  }
+  // This page helped with the below check: https://stackoverflow.com/questions/11743392/check-if-an-array-is-empty-or-exists
+  return Array.isArray(testList) && testList.length ? cb(true) : cb(false);
 }
-// Provide feedback as to whether or not the item is in the array.
+// Return string to console.log() telling whether or not the item is in the items array.
 function feedback(item) {
-  return contains(item, items, trueOrFalse => `${item} is inside the array? ${trueOrFalse}`);
+  return contains(item, items, trueOrFalse => `${item} is in items array? ${trueOrFalse}`);
 }
 console.log(feedback("Pencil"));
 console.log(feedback("Bird"));
