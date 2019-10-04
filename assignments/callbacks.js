@@ -89,8 +89,18 @@ console.log(feedback("Bird"));
 
 /* STRETCH PROBLEM */
 
+const duplicateItemsArray = ['Pencil', 'Notebook', 'yo-yo', 'Gum','Notebook'];
+
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+
+  // Used from() and set to create clean array. These pages helped with creating an array without duplicates:
+  // https://codehandbook.org/es6-javascript-remove-duplicates-from-an-array/
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from
+  return cb(Array.from(new Set(array)));
 }
+const cleanArray = removeDuplicates(duplicateItemsArray, item => item)
+console.log(duplicateItemsArray);
+console.log(cleanArray);
