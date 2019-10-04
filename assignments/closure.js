@@ -1,9 +1,13 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a closure of your own creation.
-// Keep it simple! Remember a closure is just a function
-// that manipulates variables defined in the outer scope.
+// Keep it simple! Remember a closure is just a function that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function callMe() {
+  return () => console.log(`Hey you~`);
+}
+const youCalled = callMe();
+youCalled();
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
