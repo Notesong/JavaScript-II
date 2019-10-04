@@ -38,6 +38,7 @@ const counterFactory = (count) => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  // PeeHaa's answer on this page helped with return statement:  https://stackoverflow.com/questions/12272239/javascript-function-returning-an-object
   return {
     increment: () => ++count,
     decrement: () => --count
