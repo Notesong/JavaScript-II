@@ -31,13 +31,21 @@ console.log(counted());
 console.log(counted());
 console.log(counted());
 console.log(counted());
-console.log(counted());
-console.log(counted());
 
 
 // ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
-const counterFactory = () => {
+const counterFactory = (count) => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  return {
+    increment: () => ++count,
+    decrement: () => --count
+  };
 };
+let incrementNum = counterFactory(34).increment;
+console.log(incrementNum());
+console.log(incrementNum());
+let decrementNum = counterFactory(34).decrement;
+console.log(decrementNum());
+console.log(decrementNum());
